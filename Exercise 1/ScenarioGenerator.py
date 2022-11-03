@@ -1,9 +1,15 @@
+"""
+This module is an input-output application that is created to easen creating .scn files.
+It simply takes neccessary parameters and writes them to file.
+"""
+
+
 file_name = input("File name: ")
 
 open(file_name+".scn", 'w').close() #To clear previous content
 
 with open(file_name+".scn","a") as f:
-    f.write(input("Window size: ")+"\n"
+    f.write(input("Window size: ")+"\n")
     f.write(input("Cell size: ")+"\n")
 
 
@@ -11,6 +17,9 @@ with open(file_name+".scn","a") as f:
     for i in range(nop):
         f.write(input(str(i+1)+". pedestrian position (format: (x,y)): "))
         if i != nop-1: f.write(" ")
+    f.write("\n")
+
+    f.write(input("Enter the target position (format: (x,y)): "))
     f.write("\n")
 
     now = int(input("Number of wall: "))
