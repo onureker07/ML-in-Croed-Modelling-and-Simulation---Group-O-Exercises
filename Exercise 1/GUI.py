@@ -90,7 +90,7 @@ def read_scenario(file_path:str) -> tuple[list[Cell], Cell, list[Cell]]:
 
     
 
-ps, t, obs = read_scenario("Exercise 1\\Scenarios\\test6.scn") #The file path that is wanted to simulate 
+ps, t, obs = read_scenario("Exercise 1\\Scenarios\\"+input()) #The file path that is wanted to simulate 
 
 
 """
