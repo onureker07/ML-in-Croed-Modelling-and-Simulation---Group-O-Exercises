@@ -43,7 +43,7 @@ pl.show()
 #PART 2
 from sklearn.datasets import make_swiss_roll
 from sklearn.decomposition import PCA
-dataset, colors = make_swiss_roll(1000)
+dataset, colors = make_swiss_roll(5000)
 
 figure = pl.figure()
 ax = figure.add_subplot(projection="3d")
@@ -66,6 +66,32 @@ pca = PCA(2)
 pca.fit(dataset)
 energy = sum(pca.explained_variance_)
 print(energy/total_energy)
+
+
+dataset, colors = make_swiss_roll(1000)
+
+figure = pl.figure()
+ax = figure.add_subplot(projection="3d")
+ax.set_title("Swiss Roll Dataset with 1000 datapoint")
+ax.scatter(dataset[:,0],dataset[:,1],dataset[:,2],c=colors)
+pl.show()
+dm = diffusion_map(dataset, 10)
+
+fig, ax = pl.subplots(3,4)
+for i in range(0,10):
+    ax[i//4][i%4].scatter(dm[:,0],dm[:,i])
+pl.show()
+
+
+
+pca = PCA(3)
+pca.fit(dataset)
+total_energy = sum(pca.explained_variance_)
+pca = PCA(2)
+pca.fit(dataset)
+energy = sum(pca.explained_variance_)
+print(energy/total_energy)
+
 
 #PART 3
 data = pd.read_csv("data_DMAP_PCA_vadere.txt",sep = " ",header=None)
