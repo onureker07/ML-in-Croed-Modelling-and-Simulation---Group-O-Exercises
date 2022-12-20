@@ -25,7 +25,7 @@ pl.axis([alpha_min, alpha_max,-2,2])
 pl.show()
 
 
-#x' = alpha - x^2
+#x' = alpha - 2x^2 - 3
 alpha_min = 2
 alpha_max = 4
 def positive_side_sqrt_2(x):
